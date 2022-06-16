@@ -8,6 +8,14 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/nav_logo_whiteout" />
+
     <EditText
         android:id="@+id/et_username"
         android:layout_width="match_parent"

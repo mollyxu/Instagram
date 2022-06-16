@@ -10,7 +10,7 @@
         />
     <item
         android:id="@+id/take_picture"
-        android:icon="@drawable/camera_shadow_fill"
+        android:icon="@drawable/ic_baseline_camera_alt_24"
         android:iconTint="#000000"
         android:title="Take picture"
         app:showAsAction="always" />
