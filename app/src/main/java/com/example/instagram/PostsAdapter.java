@@ -16,7 +16,9 @@ import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
 
 import org.parceler.Parcels;
+import org.w3c.dom.Text;
 
+import java.util.Date;
 import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
@@ -53,6 +55,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private TextView tvUsername;
         private ImageView ivImage;
         private TextView tvDescription;
+        private TextView tvTime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,12 +63,18 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvUsername = itemView.findViewById(R.id.tv_username);
             ivImage = itemView.findViewById(R.id.iv_image);
             tvDescription = itemView.findViewById(R.id.tv_description);
+            tvTime = itemView.findViewById(R.id.tv_time);
         }
 
         public void bind(Post post) {
             // Bind the post data to the view elements
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
+
+            Date createdAt = post.getCreatedAt();
+            String timeAgo = Post.calculateTimeAgo(createdAt);
+            tvTime.setText(timeAgo + " ago");
+
             ParseFile image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);

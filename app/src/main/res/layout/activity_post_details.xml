@@ -16,22 +16,30 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tv_caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485"
-        tools:layout_editor_absoluteX="142dp"
-        tools:text="Caption here" />
-
-    <TextView
         android:id="@+id/tv_timestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449"
+        app:layout_constraintVertical_bias="0.484"
         tools:layout_editor_absoluteX="142dp"
         tools:text="7h" />
+
+    <TextView
+        android:id="@+id/tv_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.448"
+        tools:layout_editor_absoluteX="142dp"
+        tools:text="Caption here" />
+
+    <TextView
+        android:id="@+id/tv_detailed_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="148dp"
+        tools:text="bob" />
 </androidx.constraintlayout.widget.ConstraintLayout>
