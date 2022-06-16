@@ -45,6 +45,28 @@ public class MainActivity extends AppCompatActivity {
     private File photoFile;
     public String photoFileName = "photo.jpg";
 
+    // Instance of the progress action-view
+    MenuItem miActionProgressItem;
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // Store instance of the menu item containing progress
+        miActionProgressItem = menu.findItem(R.id.miActionProgress);
+
+        // Return to finish
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    public void showProgressBar() {
+        // Show progress item
+        miActionProgressItem.setVisible(true);
+    }
+
+    public void hideProgressBar() {
+        // Hide progress item
+        miActionProgressItem.setVisible(false);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
                 launchCamera();
             }
         });
-
-//        queryPosts();
 
         btnSubmit.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -149,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
         post.setDescription(description);
         post.setImage(new ParseFile(photoFile));
         post.setUser(currentUser);
+        showProgressBar();
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -157,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Error while saving!", Toast.LENGTH_SHORT).show();
                 }
                 Log.i(TAG, "Post save was successful!");
+                hideProgressBar();
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
             }

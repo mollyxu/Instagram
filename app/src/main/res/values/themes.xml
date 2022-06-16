@@ -9,11 +9,11 @@
         <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>
     </style>
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/black</item>
         <item name="android:titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
 
         <!-- Support library compatibility -->
-        <item name="background">@color/white</item>
+        <item name="background">@color/black</item>
         <item name="titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
     </style>
 
