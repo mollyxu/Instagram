@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,8 +11,13 @@
         android:id="@+id/tv_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="molly" />
 
     <ImageView
@@ -20,19 +25,70 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/btn_like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username"
+        app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tv_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        tools:text="trying to look hipster" />
+    <ImageView
+        android:id="@+id/btn_like"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_description"
+        app:layout_constraintStart_toStartOf="@id/btn_comment"
+        app:layout_constraintTop_toBottomOf="@+id/iv_image"
+        app:srcCompat="@drawable/ufi_heart" />
+
+    <ImageView
+        android:id="@+id/btn_comment"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_like"
+        app:layout_constraintTop_toBottomOf="@+id/iv_image"
+        app:srcCompat="@drawable/ufi_comment" />
+
+    <ImageView
+        android:id="@+id/imageButton3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_comment"
+        app:layout_constraintTop_toBottomOf="@+id/iv_image"
+        app:srcCompat="@drawable/direct" />
+
+    <ImageView
+        android:id="@+id/imageButton4"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_image"
+        app:srcCompat="@drawable/ufi_save" />
 
     <TextView
         android:id="@+id/tv_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_like"
+        app:layout_constraintBottom_toTopOf="@+id/tv_description"
         tools:text="1h" />
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_time"
+        app:layout_constraintVertical_bias="0.905"
+        tools:text="trying to look hipster" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
