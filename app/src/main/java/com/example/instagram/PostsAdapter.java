@@ -73,7 +73,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
             Date createdAt = post.getCreatedAt();
             String timeAgo = Post.calculateTimeAgo(createdAt);
-            tvTime.setText(timeAgo + " ago");
+            tvTime.setText(timeAgo);
 
             ParseFile image = post.getImage();
             if (image != null) {

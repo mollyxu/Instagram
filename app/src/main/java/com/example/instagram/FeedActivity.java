@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -35,6 +36,8 @@ public class FeedActivity extends AppCompatActivity {
 
     private SwipeRefreshLayout swipeContainer;
 
+    private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,10 @@ public class FeedActivity extends AppCompatActivity {
         rvPosts.setLayoutManager(new LinearLayoutManager(this));
         // query posts from Parstagram
         queryPosts();
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setBackgroundColor(getResources().getColor(R.color.white));
 
         // Lookup the swipe container view
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
@@ -70,6 +77,28 @@ public class FeedActivity extends AppCompatActivity {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.action_home:
+                        Intent home = new Intent(FeedActivity.this, FeedActivity.class);
+                        startActivity(home);
+                        break;
+                    case R.id.action_compose:
+                        Intent compose = new Intent(FeedActivity.this, MainActivity.class);
+                        startActivity(compose);
+                        break;
+                    case R.id.action_profile:
+                    default:
+                        Intent profile = new Intent(FeedActivity.this, ProfileActivity.class);
+                        startActivity(profile);
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     private void fetchFeedAsync(int i) {

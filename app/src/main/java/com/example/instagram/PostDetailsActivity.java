@@ -34,7 +34,7 @@ public class PostDetailsActivity extends AppCompatActivity {
 
         Date createdAt = post.getCreatedAt();
         String timeAgo = Post.calculateTimeAgo(createdAt);
-        tvTimestamp.setText(timeAgo + " ago");
+        tvTimestamp.setText(timeAgo);
 
         tvCaption.setText(post.getDescription());
 

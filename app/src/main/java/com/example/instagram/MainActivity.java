@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 
 import android.app.ActionBar;
 import android.app.MediaRouteButton;
@@ -25,6 +26,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.elevation.SurfaceColors;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -44,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView ivPostImage;
     private Button btnSubmit;
 
+    private BottomNavigationView bottomNavigationView;
+
     private File photoFile;
     public String photoFileName = "photo.jpg";
 
@@ -57,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
         btnCaptureImage = findViewById(R.id.btn_capture_image);
         ivPostImage = findViewById(R.id.iv_post_image);
         btnSubmit = findViewById(R.id.btn_submit);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setBackgroundColor(getResources().getColor(R.color.white));
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +99,28 @@ public class MainActivity extends AppCompatActivity {
                         savePost(description, currentUser, photoFile);
                     }
                 }, 1000);
+            }
+        });
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.action_home:
+                        Intent home = new Intent(MainActivity.this, FeedActivity.class);
+                        startActivity(home);
+                        break;
+                    case R.id.action_compose:
+                        Intent compose = new Intent(MainActivity.this, MainActivity.class);
+                        startActivity(compose);
+                        break;
+                    case R.id.action_profile:
+                    default:
+                        Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
+                        startActivity(profile);
+                        break;
+                }
+                return true;
             }
         });
 
