@@ -26,13 +26,16 @@
         android:theme="@style/Theme.Instagram"
         tools:targetApi="31">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".PostDetailsActivity"
             android:exported="false"
-            android:theme="@style/Theme.Instagram"/>
+            android:theme="@style/Theme.Instagram" />
         <activity
             android:name=".FeedActivity"
             android:exported="false"
-            android:theme="@style/Theme.Instagram"/>
+            android:theme="@style/Theme.Instagram" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -47,11 +50,11 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.Instagram"/>
+            android:theme="@style/Theme.Instagram" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Instagram"/>
+            android:theme="@style/Theme.Instagram" />
         <activity
             android:name=".SplashScreen"
             android:exported="true"
