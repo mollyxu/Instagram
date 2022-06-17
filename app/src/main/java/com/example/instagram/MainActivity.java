@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.app.ActionBar;
+import android.app.MediaRouteButton;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -78,9 +80,17 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
-                savePost(description, currentUser, photoFile);
-                goFeedActivity();
 
+                // on some click or some loading we need to wait for...
+                ProgressBar pb = (ProgressBar) findViewById(R.id.pbLoading);
+                pb.setVisibility(ProgressBar.VISIBLE);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        savePost(description, currentUser, photoFile);
+                    }
+                }, 1000);
             }
         });
 
@@ -149,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
         post.setDescription(description);
         post.setImage(new ParseFile(photoFile));
         post.setUser(currentUser);
+
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -159,6 +170,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(TAG, "Post save was successful!");
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
+
+                // run a background job and once complete
+                ProgressBar pb = (ProgressBar) findViewById(R.id.pbLoading);
+                pb.setVisibility(ProgressBar.INVISIBLE);
+
+                goFeedActivity();
             }
         });
     }
