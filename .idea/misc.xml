@@ -6,12 +6,14 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/splashscreen.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/splashscreen_background.xml" value="0.1115" />
         <entry key="app/src/main/res/layout/activity_feed.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2286712646484375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.31002655029296877" />
-        <entry key="app/src/main/res/layout/activity_post_details.xml" value="0.23147430419921872" />
+        <entry key="app/src/main/res/layout/activity_post_details.xml" value="0.5636428833007812" />
         <entry key="app/src/main/res/layout/item_post.xml" value="0.28541666666666665" />
+        <entry key="app/src/main/res/layout/logout_btn.xml" value="0.13880445795339413" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.28541666666666665" />
         <entry key="app/src/main/res/xml/fileprovider.xml" value="0.20208333333333334" />
       </map>
